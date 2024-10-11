@@ -1,0 +1,215 @@
+Important formulas to understand....
+
+Space Complexity s(p) = c + s(instance characteristics)
+Time Complexity of Loop(N) = Number of Primitive Operations * N | N is the number of iterations of the loop
+
+Important Steps to be in sequence to be performed to measure the time complexity of an algorithm........
+If we increase the level of space complexity to the instance, where our proposed algorithm can work, then we can easily overcome with the space complexity.
+About the time complexity, scientists are researching to overcome with this time domain of the algorithm, but for the trivial solution in this situation, by changing the algorithm to achieve our target, we can somehow overcome with the time domain problems.
+
+
+Step to measure the time complexity of an algorithm
+1)Measure Input Size
+2)Type of Operations
+3)Type of Complexity of the Algorithm
+4)We define the Asymptotics of an algorithm based on the input size and selected complexity.
+5)We define the Complexity Class of that function we made in step 4 to measure the final complexity of an algorithm...
+
+As the size of the input increases, the running time also increases.
+
+when calculating the equation, all the co-officients and constants are ignored in the final results.
+
+Note: It is tricky to calculate the average case of an algorithm, so we define the function bounds that describes the relation between differnt running time of the algorithms as per the size of the input increases
+
+Now, how do we measure the time complexity of any algorithm?
+1)Should be measure the execution time of the algorithm?
+  No, becasue the execution time may differ from architecture to architecture....
+2)Should we count the number of statements in the code?
+  No, because number of program statements may vary from one programming language to another programming language.
+  And because this thing can also be dependent upon the style of writing program from one person to another.
+
+Answer:
+       We should measure the running time of the algorithm by calculating the f(n) wrt input size of an algorithm using the asypmtotic notations. And this broughts us to our first step of time complexity.
+
+Relationship b/w Rate of Growth and Asymptotics
+	It is the process which uses the rate of growth as the measurement to compare the functions of different algorithms.
+	
+	Let f(x) = n and g(x) = n^2
+	So, from the above two functions, we came to know that g(x) > f(x), and also f(x) is faster than g(x), becasue it solves the problem in linear time.
+	
+Note: In any function domain, there could be lower order terms in the higher order function domain.
+	Ex: let g(x) be n^2 and the rate of growth is n+10, so for this function rate of growth n is the higher order term and but for the domain of the function g(x), it is the lower order term
+	
+So, the steps are simple to reach up to asymptotic notation level to evaluate the good algorithm
+1)Write Algorithm.
+2)Assign Cost.
+3)Make general equation.
+4)Find rate of growth.
+***) For asymptotic notation, we need minimumly 2 algorithms to compare the time complexity using rate of growth through asymptotics notation.   
+
+Note:
+     So, when we receive the selection statements in the program, then we use the maximum function to identify that which block either true or false contains the highest rate of growth, and that will be its complexity.
+
+ General Conceptual Definitions for Asymptotic Notations:
+ Big-O Notation is less than aymptotic and implies of upperbound
+ 	We Know that f(n) = O(g(n)) so, f(n) <= g(n)
+ Big Omega Notation is greater than asymptotic and implies of lower bound
+	We know that f(n) = Big-Omega(g(n)) so, f(n) >= g(n)
+ Theta Notation is asymtotically equality
+	We know that f(n) = Theta(g(n)) so, f(n) is at most close to g(n)
+ 
+ Importants points of Big Oh
+  1) k or n. are the values, that represents the points where both c and k meets, from where the rate of growth starts.
+  2) In the definition, c is the value with c*g(n) where the point meets to differentiate the the algorithm i-e g(n) from f(n)
+  3) There will be some of the cases where the meeting points of the both the function does not meets and then that is no longer the case of Big-O, that is the case of Small-O.
+  4) f is o(g) until the values of the k and c exists to satesfy the equation of Big Oh.
+  5) The values of k and c, if larger are also applicable, and in some cases it is best if we do not look up to the smallest values that may approaches to 0, should be find.
+   
+  Important Point:
+	Common Rate of Growth order of magnitude:
+	log(n) <= n <= n(log(n)) <= n^2 <= n^3 <= 2^n
+  
+  Order of Growth in Expressions:
+   1) O(f) can be used as a term in an arithmatic expressions
+      Ex:x^2+x+1 as x^2 + O(x) OR x^2 + some function that is O(x)
+   We use this when we do not need to find the time complexity of whole expression, instead you want to find that of the specific term only.
+   Note: It is suitable in some of the cases only.
+   
+   
+   Example of a Selection Statement:
+   	if(condition){
+	   for(i=0; i < n; i++){
+		statement
+	   }
+	}else{
+	   Statement
+	}   
+
+   In the above example, we can do the following:
+	let the condition 1 be g and condition 2 be h
+	g belongs to O(f1) and h belongs to O(f2)
+	Note:as both are the part of the program, so
+	g+h belongs to O(f1 + f2)
+	Figuring out the time complexity 
+	O(max(f1, f2))
+	The maximum function will return the functon that has the greater time complexity, as of it is applied to the upperbound Asymptotics.
+	O(max(O(n), O(1))) = O(n) is the time complexity of the given code.
+   
+   ============================================================================================================================================
+
+   Example of Nested Loop Statement:
+	for(condition):
+	   for(condition):
+		statements...
+
+   let g be the outer loop and h be the inner loop,
+   g belongs to O(f) and h belongs to O(f), then g*h belongs to O(f)
+   That is:
+ 	O(f) = n^2
+   ===========================================================================================================================================
+
+   Let there be 3 different written consecutive code blocks in a Progam.
+	let the time complexity of f(n) = n, g(n) = n^2 and h(n) = n^3
+	If f belongs to O(g) and g belongs to O(h) ---> f belongs to O(h)
+	then, this situation can be represented in this way:
+		f(n) <= g(n) <= h(n)
+		f(n) <= h(n)
+  
+   =========================================================================================================================================== 
+   
+Analyzing the Recursive Algorithm
+Check to see if the problem is small enough to solve directly.
+If the problem is not as it seems in step 1, then divide the problem into smaller pieces.
+Call the function on the samller sets of data and form the partial solutions that leads to the whole and complete solution.
+Now combine all the solutions to form the final and complete solutions.
+
+General Definition to Analyze any of the Algorithm of the Recursion
+	
+                          ----
+                          -  a		if base case
+		f(n) =    -   
+                          -
+                          -
+                          -
+                          -  b * f(n) + c   recursion case
+                          -
+                          ----
+
+      It is to remembered that we can have more than one base case and can have more than one recursions in the equation and more recursion cases as well
+  
+   Cost of the Recursion Algorithm:
+	The cost of the recursion algorithm is being shown in the above general definition of the recursion 
+		where a is the cost of the base case and will be the cost of all the base cases a1 + a2 + a3 + a4 + .. + an
+		where b is the cost of all the backtracks calls that occur in the memory and the returning of all the values from those backtracks
+		where c is the cost of all the operations that are outside of the recursion and contains other operations.
+	
+   Some Important and usefull Mathematical Equations.
+   
+   Arithmetic Sequence ==> Common difference between consecutive terms.
+   Examples includes the set of natural, even or set of any tables etc.
+   
+   General Form: an = a1 + (n-1)d
+         an is the nth term
+	 a1 is the first term
+	 n-1 is the previous term number
+         d is the difference
+   Sum of n terms of the Arithmatic Sequence
+	 Sn = n/2(a1+an)
+   
+
+   Geometric Progressions is the set of series that produces successive numbers by a common ratio, where each next number is the product of the difference to the previous term
+	General Form Representation ==> an = a1r^n-1
+	Sum of N terms of Geometric Sequence = Sn = [a1(r^n - 1)] / r-1
+	where r is the common ratio
+   
+   Sigma Notations
+	
+	B
+	_____
+	=
+	=
+	=  an
+	=
+	=____
+	n = A
+	
+	where B is the upper bound or you can say the final term 
+        where n = A is the lower bound or you can say the initial term
+	an is the nth term
+	And the sigma sign referes to the sum of terms.
+	
+	Note: We can form the series from the given sigma notation data or vise versa
+	      When we see the final position B reaching to the infinite, then there are 2 cases, where the sum is possible, 
+	      
+	      if the difference in the geometric progession difference to less than 1, then we use the formula in case of geometric progression
+		
+		S =  a1
+  	           -------
+		    1 - r
+
+	===========================================================================================================================================
+    
+   	Mathematical Induction Points 
+	Let P(n) be a predicate defined from Integers n.
+		Two Basic Steps:
+		    P(a) is true from some fixed a belongs to Z
+		Inductive Step: For all integers, k >= a,
+		    if P(k) is true, then P(k+1) is true
+	     Then for all integers n >= a, P(n) is true
+	============================================================================================================================================
+
+	Solving Recurrance Relation
+	Basic Steps:
+	   1) Expand the Recurrance
+	   2) Sum up the expansion of the recurrance
+	   3) Evaluate the pattern at each backtracking steps.
+	
+	Solving through Iteration Method:
+	   1)Iterate the recurrance(break down the problem) until the initial condition is reached.
+	   2)Back Substitution to express the recurrance in terms of n and initial condition.
+	
+	General Equations we can refer:
+	   T(n) = c+c+c+.....+c+T(1) ==> log(n)
+	   T(n) = k(n) + harmonic series of backtracking(2**k) + T(1) ==> nlog(n)
+	
+	
